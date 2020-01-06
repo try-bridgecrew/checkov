@@ -3,8 +3,7 @@
 import logging
 import argparse
 
-from checkov.terraform.runner import Runner
-from checkov.terraform.util.banner import banner
+from checkov.runner import Runner
 
 logging.basicConfig(level=logging.INFO)
 # define a Handler which writes INFO messages or higher to the sys.stderr

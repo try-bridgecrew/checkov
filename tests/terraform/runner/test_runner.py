@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from checkov.terraform.runner import Runner
+from checkov.runner import Runner
 
 
 class TestRunnerValid(unittest.TestCase):

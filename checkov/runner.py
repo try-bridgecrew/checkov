@@ -2,9 +2,16 @@ import logging
 
 from checkov.terraform.context_parsers.registry import parser_registry
 from checkov.terraform.checks.resource.registry import resource_registry
+from checkov.terraform.models.enums import CheckResult
 from checkov.terraform.output.record import Record
 from checkov.terraform.output.report import Report
-from checkov.terraform.parser import Parser
+from checkov.common.parser import Parser
+
+from cfripper.rule_processor import RuleProcessor
+
+from cfripper.config.config import Config
+from cfripper.model.result import Result
+from cfripper.rules import DEFAULT_RULES
 
 
 class Runner:
@@ -12,14 +19,24 @@ class Runner:
     def run(self, root_folder, external_checks_dir=None):
         report = Report()
         tf_definitions = {}
+        cf_definitions = {}
         parsing_errors = {}
 
         if external_checks_dir:
             for directory in external_checks_dir:
                 resource_registry.load_external_checks(directory)
+        Parser().parse(directory=root_folder, tf_definitions=tf_definitions, parsing_errors=parsing_errors,
+                       cf_definitions=cf_definitions)
+        self.process_cloudformation(cf_definitions, report)
 
-        Parser().hcl2(directory=root_folder, tf_definitions=tf_definitions, parsing_errors=parsing_errors)
-        report.add_parsing_errors(parsing_errors.keys())
+        self.process_terraform(report, root_folder, tf_definitions)
+        return report
+
+    def process_cloudformation(self, cf_definitions, report):
+        for path, cf_definition in cf_definitions.items():
+            pass
+
+    def process_terraform(self, report, root_folder, tf_definitions):
         for definition in tf_definitions.items():
             full_file_path = definition[0]
             definition_context = parser_registry.enrich_definitions_context(definition)
@@ -42,4 +59,3 @@ class Runner:
                                         file_line_range=resource_lines_range,
                                         resource=resource_id, check_class=check.__class__.__module__)
                         report.add_record(record=record)
-        return report

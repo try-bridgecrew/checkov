@@ -19,6 +19,8 @@ tabulate = "*"
 colorama="*"
 termcolor="*"
 junit-xml ="*"
+cfripper ="*"
+cfn_flip = "*"
 checkov = {editable = true,path = "."}
 
 [requires]
