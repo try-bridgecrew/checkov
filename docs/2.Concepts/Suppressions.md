@@ -20,7 +20,7 @@ To skip a check on a given Terraform definition block, apply the following comme
 * `<check_id>` is one of the [available check scanners](../3.Scans/resource-scans.md)
 * `<suppression_comment>` is an optional suppression reason to be included in the output
 
-### Example
+## Example
 The following comment skip the `CKV_AWS_20` check on the resource identified by `foo-bucket`, where the scan checks if an AWS S3 bucket is private.
 In the example, the bucket is configured with a public read access; Adding the suppress comment would skip the appropriate check instead of the check to fail.
 ```hcl-terraform
@@ -45,3 +45,6 @@ Check: "S3 Bucket has an ACL defined which allows public access."
 	
 ...
 ```
+
+## What's Next?
+You've covered the introduction and the concepts. It's time to review the current set of supported [Checks](../3.Scans/resource-scans.md).
