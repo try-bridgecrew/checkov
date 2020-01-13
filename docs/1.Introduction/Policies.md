@@ -87,7 +87,7 @@ checkov -d /user/tf
 
 
 
-## Next Steps
+## What's Next?
 
 Explore your scan [Results](Results.md) and check out the supported output methods (CLI, JSON, Junit XML).
 
