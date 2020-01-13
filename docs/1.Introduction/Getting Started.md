@@ -805,4 +805,4 @@ Check: "Ensure all data stored in the S3 bucket have versioning enabled"
 ```
 
 ## What's Next?
-From this point, you can head to the [Policies](Policies.md) for further examples or the How-to Guides section if you’re ready to get your hands dirty.
+From this point, you can head to our [Policies](Policies.md) to get more familiar with Checkov's scanning logic. If you are ready to contribute take a look at the [Contribution](New-Check.md) section if you’re ready to get your hands dirty.
