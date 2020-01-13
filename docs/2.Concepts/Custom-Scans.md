@@ -10,7 +10,6 @@ order: 6
 Checkov is delivered with a  [set of built-in policies](../3.Scans/resource-scans.md) that checks for compliance and security best practices at its core.
  In addition, Checkov enables loading of extra checks, that give the user a possibility to author and execute custom policies.
 
-# Example 
 Let's assume we have the following directory structure:
 ```text
 ├── main.tf
@@ -114,3 +113,6 @@ Check: "Ensure PCI Scope buckets has private ACL (enable public ACL for non-pci 
 		89 | }
 		90 | }
 ```
+
+## What's Next
+Next, explore the option to use [Suppressions](../2.Concepts/Suppressions.md), to enable developers to prevent possible build failures for checks that are not applicable.
