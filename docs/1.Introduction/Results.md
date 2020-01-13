@@ -586,4 +586,4 @@ This print also includes detailed structured data-blocks that contain exact refe
 
 ## Next Steps
 
-All done with the introductions. Next, we suggest exploring some more advanced topics like: [Suppressions](../2.Concepts/Suppressions.md) and [Custom Scans](../2.Concepts/custom-scans.md).
+All done with the introductions. Next, we suggest exploring some more advanced topics like: [Suppressions](../2.Concepts/Suppressions.md) and [Custom Scans](../2.Concepts/Custom-Scans.md).
