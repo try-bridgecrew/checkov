@@ -108,6 +108,9 @@ resource "google_container_cluster" "primary_good" {
   ip_allocation_policy {}
 
   private_cluster_config {}
+  network_policy {
+    enabled = true
+  }
 }
 
 resource "google_container_cluster" "primary_good2" {
