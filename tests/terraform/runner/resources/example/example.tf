@@ -92,6 +92,11 @@ resource "google_sql_database_instance" "gcp_sql_db_instance_good" {
       require_ssl = "True"
     }
   }
+  settings {
+    backup_configuration {
+      enabled = true
+    }
+  }
 }
 
 resource "google_container_cluster" "primary_good" {
